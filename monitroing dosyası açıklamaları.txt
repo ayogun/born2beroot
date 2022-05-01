@@ -14,16 +14,18 @@ uniq = birbirinin aynısı tekrar eden satırları filtreleyerek çıkarır
 wc = sayım yapar , -l flagi ile satır sayısı yani line olduğunu dikte ediyoruz
 free = show free memory, -m flagi ile MB cinsinden çıktı istiyoruz
 awk = yapısal arama yapmamızı sağlıyor, scriptte sütun bazlı arama yapıyoruz
+df = display free disk space 
+top = printout CPU use concurrently -b flagi başlatıyor -n flagi bitirmek için ama -n flagi sonuna int değer ile kaç iterasyon göstericeğini istiyor
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 arc=$(uname -a)																									--> Mevcut işletim sisteminin mimarisi ve kernel versiyonunu gösterir.
-pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)													--> Fiziksel işlemci sayısını verir.
+pcpu=$(grep "physical id" /proc/cpuinfo | sort |  uniq | wc -l)													--> Fiziksel işlemci sayısını verir.
 vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)																	--> Sanal işlemci sayısını verir.
 fram=$(free -m | awk '$1 == "Mem:" {print $2}')																	--> Sunucunun erişilebilir toplamRAM miktarını verir.
 uram=$(free -m | awk '$1 == "Mem:" {print $3}')																	--> Kullanılan RAM miktarını verir.
 pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')													--> printf("%.2f") virgülden sonra alınacak 2 değeri yollar $3/$2*100 ise yüzde olarak kullanımı verir
-fdisk=$(df -Bg | grep '^/dev/' | grep -v '/boot$' | awk '{ft += $2} END {print ft}')							--> Sunucunun erişilebilir depolama miktarını verir.
-udisk=$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')							--> Sunucunun kullanılan depolama alanını verir.
+fdisk=$(df -Bg | grep '^/dev/' | grep -v '/boot$' | awk '{ft += $2} END {print ft}')							--> Sunucunun erişilebilir depolama miktarını verir GB cinsinden.
+udisk=$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')							--> Sunucunun kullanılan depolama alanını verir mb cinsinden.
 pdisk=$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}')	--> "kullanılan depolama alanı / erişilebilir alan * 100" bize yüzde kullanımını verir.
 cpul=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')							--> Yüzde olarak işlemci kullanım oranını verir.
 lb=$(who -b | awk '$1 == "sistem" {print $3 " " $4}')															--> Son yeniden başlatma tarihi ve saatini verir.
