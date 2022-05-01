@@ -1,4 +1,4 @@
-cd..NOT: "No commands-Komut yok" gibi hatalarla karşılaşırsanız "sudo" parametresiyle yeniden deneyin, büyük ihtimal ile sorun çözülecektir.
+cd..NOT: "No commands-Komut yok" gibi hatalarla karşılaşırsanız "sudo" parametresiyle yeniden dene, büyük ihtimal ile sorun çözülecektir.
 
 SDA'lar yapılandırıldıktan sonra,
 	1-) "su" 									--> Yazıp root hesabına giriş yapılır (Root parolası soracak sistemi kurarken belirlemiş olduğumuz ilk parola)
