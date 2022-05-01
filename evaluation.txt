@@ -48,6 +48,7 @@ A: ... README.md
                                            ##################################
                                            #    Part two: What to check?    #
                                            ##################################
+                                           
 |***************************************|
 | 1) lsblk                              1 <- Check partitions
 | 2) sudo aa-status                     2 <- AppArmor status
@@ -63,7 +64,6 @@ A: ... README.md
 |***************************************|
 
 
-I think this one need an addition to make it more easy to pass evaluation. So, here we are on our checklist and his commands.
 
 How to change hostname?
 [$sudo nano /etc/hostname]
