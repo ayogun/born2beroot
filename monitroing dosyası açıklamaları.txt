@@ -3,15 +3,23 @@ uniq = tekrar eden satırları ayırma.
 $1,$2... = Mer $1 haba $2 dün $3 ya $4 sütunları tutuyor diyebiliriz.
 free -m = Ram miktarını Mebibayt cinsinde gösterir. Böyle yapmamızın sebebi scripte kullanımlar üzerinden yüzde hesabı vs. yapmamız için.
 grep '^/dev/' = ^ ekinden sonra gelen kelime ile başlayan yerleri alır.
-grep -v '/boot$' = -v eki çıkarılacak kelimeyi gösterir
+grep -v '/boot$' = -v flagi ile belirttiğimiz kelimeyi içeren satırlar çıkarılır
 awk '{ft += $2} END {print ft}' = ft bir değişken olarak düşünüle bilir ft içerisinde $2 de yer alan verileri ekler ve ft yi ekrana yazdırır.
 cut -c 9- | xargs | awk '{printf("%.1f%%") = "cut -c 9-" Bir karakteri veya bir karakter diziyi silmek için kullanılır. "xargs" Fonksiyon olarak öncesinden kullanılan çıktıyı bir sonraki komuta iletir. "printf("%.1f%%")" Float değer tipinde "."dan sonra 1 karakter alıp sonuna "%" ekler.
+uname = işletim sistemi detaylarını print eder. -a flagi bütün özellikleri print etmesini dikte eder.
+grep = search yapar dosya içinde kelime tabanlı olarak
+| = linux dilinde pipe anlamına gelir. Outputu yeni input olarak verir.
+sort = satır satır dosydadaki textleri sıralar. GNL gibi.
+uniq = birbirinin aynısı tekrar eden satırları filtreleyerek çıkarır
+wc = sayım yapar , -l flagi ile satır sayısı yani line olduğunu dikte ediyoruz
+free = show free memory, -m flagi ile MB cinsinden çıktı istiyoruz
+awk = yapısal arama yapmamızı sağlıyor, scriptte sütun bazlı arama yapıyoruz
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 arc=$(uname -a)																									--> Mevcut işletim sisteminin mimarisi ve kernel versiyonunu gösterir.
 pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l)													--> Fiziksel işlemci sayısını verir.
 vcpu=$(grep "^processor" /proc/cpuinfo | wc -l)																	--> Sanal işlemci sayısını verir.
-fram=$(free -m | awk '$1 == "Mem:" {print $2}')																	--> Sunucunun erişilebilir RAM miktarını verir.
+fram=$(free -m | awk '$1 == "Mem:" {print $2}')																	--> Sunucunun erişilebilir toplamRAM miktarını verir.
 uram=$(free -m | awk '$1 == "Mem:" {print $3}')																	--> Kullanılan RAM miktarını verir.
 pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')													--> printf("%.2f") virgülden sonra alınacak 2 değeri yollar $3/$2*100 ise yüzde olarak kullanımı verir
 fdisk=$(df -Bg | grep '^/dev/' | grep -v '/boot$' | awk '{ft += $2} END {print ft}')							--> Sunucunun erişilebilir depolama miktarını verir.
