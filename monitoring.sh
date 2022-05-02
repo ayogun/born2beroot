@@ -11,7 +11,7 @@ cpul=$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 
 lb=$(who -b | awk '$1 == "sistem" {print $3 " " $4}')															              --> Son yeniden başlatma tarihi ve saatini verir.
 lvmt=$(lsblk | grep "lvm" | wc -l)																			                  	--> LVM ile yapılandırılmış disklerin bilgisini verir.
 lvmu=$(if [ $lvmt -eq 0 ]; then echo hayır; else echo evet; fi)												      		--> Sistemde LVM'nin aktif olup olmadığı bilgisini verir. NOT: Diğer öğelerin sorunsuz çalışması için net-tools paketini yüklemeniz gerekli.
-ctcp=$(cat /proc/net/sockstat{,6} | awk '$1 == "TCP:" {print $3}')									      			--> Mevcut aktif bağlantı sayısını verir.
+ctcp=$(cat /proc/net/sockstat | awk '$1 == "TCP:" {print $3}')									      			--> Mevcut aktif bağlantı sayısını verir.
 ulog=$(users | wc -w)																						                    	--> Sunucuyu kullanan kullanıcı sayısını verir.
 ip=$(hostname -I)																								                     --> Sunucu IP Adresini verir.
 mac=$(ip link show | awk '$1 == "link/ether" {print $2}')														--> Sunucu MAC Adresini verir.
