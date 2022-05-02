@@ -16,6 +16,9 @@ free = show free memory, -m flagi ile MB cinsinden çıktı istiyoruz
 awk = yapısal arama yapmamızı sağlıyor, scriptte sütun bazlı arama yapıyoruz
 df = display free disk space 
 top = printout CPU use concurrently -b flagi başlatıyor -n flagi bitirmek için ama -n flagi sonuna int değer ile kaç iterasyon göstericeğini istiyor
+cut = istediğimiz porsiyonu kesiyor  -c flagini anlamadım
+xargs = argüman listesi ooluşturuyor
+who = display who is logged in -b:time of last system boot
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 arc=$(uname -a)																									--> Mevcut işletim sisteminin mimarisi ve kernel versiyonunu gösterir.
