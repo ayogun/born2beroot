@@ -19,6 +19,7 @@ top = printout CPU use concurrently -b flagi başlatıyor -n flagi bitirmek içi
 cut = istediğimiz porsiyonu kesiyor  -c flagini anlamadım
 xargs = argüman listesi ooluşturuyor
 who = display who is logged in -b:time of last system boot
+journalctl = journal deamoninin topladığı loglar
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 arc=$(uname -a)																									--> Mevcut işletim sisteminin mimarisi ve kernel versiyonunu gösterir.
