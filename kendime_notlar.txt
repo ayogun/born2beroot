@@ -8,7 +8,7 @@ SDA'lar yapılandırıldıktan sonra,
 	-------------------------------------------------------------------------------------------------------------------------------------------------------------
 	5-) Gruba eklenen kullanıcıya login olduktan sonra "sudo -v" ile tekrar kontrol sağlayalım.
 	6-) "sudo apt update"						--> Yazıp paket listelerini güncelleyelim.
-	7-) "sudo visudo -f /etc/sudoers.d/newsudoers"	--> Sudo dosyalarını "visudo" ile açmak daha güvenli bir yapı oluşturur, belirtilen dizine blabla adında yeni bir dosya yarattık ve aşağıda ki kodları ekleyeceğiz.
+	7-) "sudo visudo"	--> Sudo dosyalarını "visudo" ile açmak daha güvenli bir yapı oluşturur, belirtilen dizine blabla adında yeni bir dosya yarattık ve aşağıda ki kodları ekleyeceğiz.
 		@-) Defaults		passwd_tries=3									// Sudo ile max şifre deneme sayısı 3 yapılır (Standart olarak da 3'tür)
 		@-) Defaults		badpass_message="bla bla bla bla bla bla"		// Hatalı şifre denemelerinden sonra gösterilecek hata mesajınız
 		@-) Defaults		logfile="/var/log/sudo/sudolog"					// Tüm kullanılan sudo komutlarını belirtilen dosyanın içerisinde saklar
