@@ -59,7 +59,7 @@ SDA'lar yapılandırıldıktan sonra,
 	-------------------------------------------------------------------------------------------------------------------------------------------------------------
 	ŞİMDİ YENİ YAPILANDIRMALARIMIZI TEST ETMEK İÇİN  ROOT VE KURULUM SIRASINDA ADIMIZA AÇTIĞIMIZ DİĞER KULLANICININ ŞİFRELERİNİ DEĞİŞTİRECEĞİZ
 	-------------------------------------------------------------------------------------------------------------------------------------------------------------
-	21-) "sudo groupadd user42"		'getent group'			--> "user42" adında yeni grup oluşturduk. Ve check ettik
+	21-) "sudo addgroup user42"		'getent group'			--> "user42" adında yeni grup oluşturduk. Ve check ettik
 	22-) "sudo adduser kullanıcı_adı user42"	--> user42 grubuna belirlenen kullanıcıyı ekledik.
 	23-) "sudo passwd kullanıcı_adı"			--> şifrelerimizi değişelim.
 
