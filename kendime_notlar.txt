@@ -81,3 +81,6 @@ SDA'lar yapılandırıldıktan sonra,
 
 	-------------------------------------------------------------------------------------------------------------------------------------------------------------
 	24-) "sudo crontab -u root -e"				--> Crontab zamanlı dosya çalıştırma sistemi olarak düşünüle bilir. En alt satır "*/10 * * * * sh /path/to/script" değiştir ya da ekle.
+	
+	
+	Aşağıdaki linktden de cross check yapabilirim çalışmayan komut olduğu zaman https://baigal.medium.com/born2beroot-e6e26dfb50ac
